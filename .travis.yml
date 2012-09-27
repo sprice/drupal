@@ -11,7 +11,7 @@ mysql:
 before_script:
   - mysql -e 'create database drupal;'
   - pear channel-discover pear.drush.org
-  - pear install drush/drush-5.4.0
+  - pear install drush/drush-5.7.0
   - phpenv rehash
   - drush si standard --db-url=mysql://root:@127.0.0.1/drupal --yes
   - drush cc all --yes
