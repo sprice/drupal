@@ -9,6 +9,7 @@ mysql:
   encoding: utf8
 
 before_script:
+  # Apache setup from https://gist.github.com/3123962
   - sudo apt-get install apache2
   - sudo a2enmod actions
   - sudo a2enmod rewrite
@@ -25,4 +26,4 @@ before_script:
   - drush en simpletest --yes
 
 script:
-  - drush test-run --uri=http://127.0.0.1 ActionLoopTestCase
+  - drush test-run --uri=http://127.0.0.1 --all
