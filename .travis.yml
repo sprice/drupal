@@ -10,6 +10,6 @@ before_script:
   - phpenv rehash
   - drush si standard --db-url=mysql://root:@127.0.0.1/drupal --yes
   - drush cc all --yes
-  - drush en simplest --yes
+  - drush en simpletest --yes
 
 script: drush test-run UserSaveTestCase
