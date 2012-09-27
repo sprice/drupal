@@ -12,4 +12,4 @@ before_script:
   - drush cc all --yes
   - drush en simpletest --yes
 
-script: drush test-run UserSaveTestCase
+script: drush test-run --all
