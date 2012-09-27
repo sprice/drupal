@@ -3,13 +3,17 @@ language: php
 php:
   - 5.3
 
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
 before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
   - sudo apt-get update
   - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-mysql
   - sudo a2enmod rewrite
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
   - sudo /etc/init.d/apache2 restart
   - mysql -e 'create database drupal;'
   - pear channel-discover pear.drush.org
@@ -18,5 +22,6 @@ before_script:
   - drush si standard --db-url=mysql://root:@127.0.0.1/drupal --yes
   - drush cc all --yes
   - drush en simpletest --yes
+  - drush status
 
 script: drush test-run --uri=http://127.0.0.1/ ActionLoopTestCase
