@@ -10,7 +10,7 @@ mysql:
 
 before_script:
   - sudo apt-get install nginx
-  - sudo echo "deb http://php53.dotdeb.org stable all" >> /etc/apt/sources.list
+  - echo "deb http://php53.dotdeb.org stable all" | sudo tee /etc/apt/sources.list.d/php53.list
   - sudo apt-get update
   - sudo apt-get install php5-fpm
   - sudo cp .travis_nginx.conf /etc/nginx/nginx.conf
