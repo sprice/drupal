@@ -20,4 +20,3 @@ before_script:
 script:
   - drush runserver --server=builtin 8080 &
   - drush test-run --uri=http://127.0.0.1:8080 ActionLoopTestCase
-  
