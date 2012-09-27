@@ -22,4 +22,4 @@ before_script:
   - drush en simpletest --yes
 
 script:
-  - drush test-run --uri=http://127.0.0.1 --all
+  - drush test-run --uri=http://127.0.0.1 ActionLoopTestCase
