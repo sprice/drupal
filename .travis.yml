@@ -3,13 +3,8 @@ language: php
 php:
   - 5.3
 
-mysql:
-  database: drupal
-  username: root
-  encoding: utf8
-
 before_script:
-  - "mysql -e 'create database drupal;'"
+  - mysql -e 'create database drupal;'
   - pear channel-discover pear.drush.org
   - pear install drush/drush
   - phpenv rehash
@@ -17,5 +12,4 @@ before_script:
   - drush cc all --yes
   - drush en simplest --yes
 
-script: 
-  - drush test-run UserSaveTestCase
+script: drush test-run UserSaveTestCase
