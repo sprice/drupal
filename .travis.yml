@@ -22,8 +22,9 @@ before_script:
   - pear install drush/drush-5.7.0
   - phpenv rehash
   - drush si standard --db-url=mysql://root:@127.0.0.1/drupal --yes
+  - chmod 777 sites/default/files
   - drush cc all --yes
   - drush en simpletest --yes
 
 script:
-  - drush test-run --uri=http://127.0.0.1 --all
+  - drush test-run --uri=http://127.0.0.1 ActionLoopTestCase ImportOPMLTestCase
